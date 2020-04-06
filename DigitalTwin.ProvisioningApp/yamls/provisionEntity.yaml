@@ -1,0 +1,66 @@
+- name: Nimble Hospital New York
+  type: Hospital
+  resources:
+  - type: IoTHub
+  spaces:
+  - name: Block A
+    type: Building
+    spaces:
+      - name: Floor 1
+        type: Floor
+        spaces:
+        - name: Visitors Area
+          type: Area
+        - name: Doctor Cabin 1
+          type: Room
+          subType: DoctorCabin
+        - name: Patient Ward 1
+          type: Room
+          subType: PatientWard
+          devices:
+          - name: Monitoring Device 1
+            hardwareId: 1234567890AB
+            sensors:
+            - dataType: Motion
+              hardwareId: SAMPLE_SENSOR_MOTION
+            - dataType: CarbonDioxide
+              hardwareId: SAMPLE_SENSOR_CARBONDIOXIDE
+            - dataType: Temperature
+              hardwareId: SAMPLE_SENSOR_TEMPERATURE
+            #- dataType: BloodPressure
+              #hardwareId: VITALS_BLOODPRESSURE
+            #- dataType: BodyTemperature
+              #hardwareId: VITALS_BODYTEMPERATURE
+          matchers:
+              - name: Matcher Motion A1
+                dataTypeValue: Motion
+              - name: Matcher CarbonDioxide A1
+                dataTypeValue: CarbonDioxide
+              - name: Matcher Temperature
+                dataTypeValue: Temperature
+              #- name: Matcher BloodPressure
+                #dataTypeValue: BloodPressure
+              #- name: Matcher BodyTemperature
+                #dataTypeValue: BodyTemperature
+          userdefinedfunctions:
+              - name: Motion Processor
+                matcherNames:
+                - Matcher Motion A1
+                - Matcher CarbonDioxide A1
+                - Matcher Temperature
+                script: UDF/availability.js
+              #- name: Patient Monitor
+                #matcherNames:
+                #- Matcher BloodPressure
+                #- Matcher BodyTemperature
+                #script: actions/userDefinedFunctions/patientVitals.js
+          roleassignments:
+              - roleId: 98e44ad7-28d4-4007-853b-b9968ad132d1 # System Role: SpaceAdministrator
+                objectName: Motion Processor
+                objectIdType: UserDefinedFunctionId
+              #- roleId: 98e44ad7-28d4-4007-853b-b9968ad132d1 # System Role: SpaceAdministrator
+                #objectName: Patient Monitor
+                #objectIdType: UserDefinedFunctionId
+
+          
+

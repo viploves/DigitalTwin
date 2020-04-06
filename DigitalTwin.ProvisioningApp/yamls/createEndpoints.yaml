@@ -1,0 +1,16 @@
+- type: EventGrid
+  eventTypes:
+  - SensorChange
+  - SpaceChange
+  - TopologyOperation
+  - UdfCustom
+  connectionString: kLS0lLu5n07lgyPuFs/Lr94xgvM9BfU+44RT8wyA6PU=
+  secondaryConnectionString: aPSrBfX0b+5F3z0RjdTwRC2vJCVjKG1v9J70qQAeYd4=
+  path: top-nimblehealth.eastus-1.eventgrid.azure.net
+- type: EventHub
+  eventTypes:
+  - SensorChange
+  - SpaceChange
+  connectionString: Endpoint=sb://eh-nimblehealth.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=TyWGyuhonMWJKlzAfl7B5//c6ruhzsP6+z10sW1qif8=
+  secondaryConnectionString: Endpoint=sb://eh-nimblehealth.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yYw2c8yTstcCQccAupLwucKTVrKRVsjhQ4f4HSnqlt0=
+  path: eh-nimblehospitals
