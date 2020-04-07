@@ -5,11 +5,11 @@ using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
-using DigitalTwin.SensorSimulator.Models;
+using DigitalTwin.DeviceSimulator.Models;
 using Microsoft.Azure.Devices.Client;
 using Microsoft.Extensions.Configuration;
 
-namespace DigitalTwin.SensorSimulator
+namespace DigitalTwin.DeviceSimulator
 {
     class Program
     {
@@ -31,7 +31,7 @@ namespace DigitalTwin.SensorSimulator
 
             try
             {
-                DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(settings["DeviceConnectionString"]);
+                var deviceClient = DeviceClient.CreateFromConnectionString(settings["DeviceConnectionString"]);
 
                 if (deviceClient == null)
                 {
@@ -54,25 +54,33 @@ namespace DigitalTwin.SensorSimulator
                 default:
                     throw new Exception($"Unsupported configuration: SensorDataType, '{sensorDataType}'. Please check your appsettings.json.");
                 case "Motion":
-                    //if (iteration % 6 < 3)
-                    return () => "false";
-                //else
-                //return () => "true";
+                    if (iteration % 6 < 4)
+                        return () => "false";
+                    else
+                        return () => "true";
 
                 case "Temperature":
-                    return () => rnd.Next(70, 80).ToString(CultureInfo.InvariantCulture);
+                    if (iteration % 6 < 4)
+                        return () => rnd.Next(65, 78).ToString(CultureInfo.InvariantCulture);
+                    else
+                        return () => rnd.Next(78, 85).ToString(CultureInfo.InvariantCulture);
 
                 case "CarbonDioxide":
-                    //if (iteration % 6 < 3)
-                    //    return () => rnd.Next(800, 1000).ToString(CultureInfo.InvariantCulture);
-                    //else
-                    //    return () => rnd.Next(1000, 1100).ToString(CultureInfo.InvariantCulture);
-                    return () => rnd.Next(700, 1050).ToString(CultureInfo.InvariantCulture);
+                    if (iteration % 6 < 4)
+                        return () => rnd.Next(800, 1000).ToString(CultureInfo.InvariantCulture);
+                    else
+                        return () => rnd.Next(1000, 1050).ToString(CultureInfo.InvariantCulture);
                 case "BloodPressure":
-                    return () => rnd.Next(80, 200).ToString(CultureInfo.InvariantCulture);
+                    if (iteration % 6 < 4)
+                        return () => rnd.Next(80, 120).ToString(CultureInfo.InvariantCulture);
+                    else
+                        return () => rnd.Next(140, 200).ToString(CultureInfo.InvariantCulture);
 
                 case "BodyTemperature":
-                    return () => rnd.Next(90, 100).ToString(CultureInfo.InvariantCulture);
+                    if (iteration % 6 < 4)
+                        return () => rnd.Next(90, 100).ToString(CultureInfo.InvariantCulture);
+                    else
+                        return () => rnd.Next(100, 105).ToString(CultureInfo.InvariantCulture);
             }
         }
 

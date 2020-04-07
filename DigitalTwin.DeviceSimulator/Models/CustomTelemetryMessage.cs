@@ -4,7 +4,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace DigitalTwin.SensorSimulator.Models
+namespace DigitalTwin.DeviceSimulator.Models
 {
     [DataContract(Name="CustomTelemetryMessage")]
     public class CustomTelemetryMessage

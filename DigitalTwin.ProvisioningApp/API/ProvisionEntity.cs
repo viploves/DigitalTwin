@@ -16,10 +16,10 @@ namespace DigitalTwin.ProvisioningApp
 {
     public static partial class Actions
     {
-        public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionEntity(HttpClient httpClient, ILogger logger)
+        public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionTwin(HttpClient httpClient, ILogger logger)
         {
             IEnumerable<SpaceDescription> spaceCreateDescriptions;
-            using (var r = new StreamReader("yamls/provisionEntity.yaml"))
+            using (var r = new StreamReader("yamls/provisionTwin.yaml"))
             {
                 spaceCreateDescriptions = await GetProvisionSampleTopology(r);
             }

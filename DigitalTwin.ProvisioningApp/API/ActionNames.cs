@@ -10,6 +10,6 @@ namespace DigitalTwin.ProvisioningApp
         GetAvailableAndFreshSpaces,
         GetOntologies,
         GetSpaces,
-        ProvisionEntity,
+        ProvisionTwin,
     }
 }

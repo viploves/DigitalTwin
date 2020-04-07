@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DigitalTwin.SensorSimulator.Models
+namespace DigitalTwin.DeviceSimulator.Models
 {
     public class Sensor
     {
