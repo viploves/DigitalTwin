@@ -47,9 +47,6 @@ function process(telemetry, executionContext) {
         if (!motionValue) {
             // Set parent space
             setSpaceValue(parentSpace.Id, dataType, roomAvailable);
-
-            // Set up notification for this alert
-            parentSpace.Notify(JSON.stringify(roomAvailable));
         }
         else {
             // Set parent space

@@ -120,6 +120,8 @@ namespace DigitalTwin.DeviceSimulator
 
                         await deviceClient.SendEventAsync(eventMessage);
                     }
+
+                    await Task.Delay(TimeSpan.FromSeconds(delayPerMessageSend));
                 }
 
                 await Task.Delay(TimeSpan.FromSeconds(delayPerMessageSend));

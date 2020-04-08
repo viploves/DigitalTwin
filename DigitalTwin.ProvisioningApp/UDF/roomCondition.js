@@ -55,9 +55,6 @@ function process(telemetry, executionContext) {
         if (temperatureValue > temperatureThreshold || co2Value > co2Threshold) {
             // Set parent space
             setSpaceValue(parentSpace.Id, dataType, unhealthyCondition);
-
-            // Set up notification for this alert
-            parentSpace.Notify(JSON.stringify(alert));
         }
         else {
             // Set parent space
