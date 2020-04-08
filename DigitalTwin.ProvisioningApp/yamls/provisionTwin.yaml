@@ -1,4 +1,4 @@
-- name: Nimble Hospital New York
+- name: Contoso Hospitals New York
   type: Hospital
   resources:
   - type: IoTHub
