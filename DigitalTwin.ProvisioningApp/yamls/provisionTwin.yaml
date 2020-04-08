@@ -1,0 +1,56 @@
+- name: Contoso Hospitals New York
+  type: Hospital
+  resources:
+  - type: IoTHub
+  spaces:
+  - name: Block A
+    type: Building
+    spaces:
+      - name: Floor 1
+        type: Floor
+        spaces:
+        - name: Visitors Area
+          type: Area
+        - name: Doctor Cabin 1
+          type: Room
+          subType: DoctorCabin
+        - name: Patient Ward 1
+          type: Room
+          subType: PatientWard
+          devices:
+          - name: Monitoring Device 1
+            hardwareId: ABC12345
+            sensors:
+            - dataType: CarbonDioxide
+              hardwareId: SENSOR_CARBONDIOXIDE
+            - dataType: Temperature
+              hardwareId: SENSOR_TEMPERATURE
+            - dataType: Motion
+              hardwareId: SENSOR_MOTION
+          matchers:
+          - name: Matcher Motion A1
+            dataTypeValue: Motion
+          - name: Matcher CarbonDioxide A1
+            dataTypeValue: CarbonDioxide
+          - name: Matcher Temperature
+            dataTypeValue: Temperature
+          userdefinedfunctions:
+          - name: Motion Processor
+            matcherNames:
+            - Matcher Motion A1
+            script: UDF/roomAvailability.js
+          - name: Room Condition Processor
+            matcherNames:
+            - Matcher CarbonDioxide A1
+            - Matcher Temperature
+            script: UDF/roomCondition.js
+          roleassignments:
+          - roleId: 98e44ad7-28d4-4007-853b-b9968ad132d1 # System Role: SpaceAdministrator
+            objectName: Motion Processor
+            objectIdType: UserDefinedFunctionId
+          - roleId: 98e44ad7-28d4-4007-853b-b9968ad132d1 # System Role: SpaceAdministrator
+            objectName: Room Condition Processor
+            objectIdType: UserDefinedFunctionId
+
+          
+

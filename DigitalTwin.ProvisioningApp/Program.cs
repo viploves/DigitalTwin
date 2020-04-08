@@ -15,8 +15,7 @@ namespace DigitalTwin.ProvisioningApp
                 var appSettings = AppSettings.Load();
 
                 var actionName = ParseArgs(args);
-                actionName = ActionName.ProvisionEntity;
-                //actionName = ActionName.CreateRoleAssignments;
+                actionName = ActionName.ProvisionTwin;
                 if (actionName == null)
                     return;
 
@@ -37,8 +36,8 @@ namespace DigitalTwin.ProvisioningApp
                     case ActionName.GetSpaces:
                         await Actions.GetSpaces(await SetupHttpClient(Loggers.ConsoleLogger, appSettings), Loggers.ConsoleLogger);
                         break;
-                    case ActionName.ProvisionEntity:
-                        await Actions.ProvisionEntity(await SetupHttpClient(Loggers.ConsoleLogger, appSettings), Loggers.ConsoleLogger);
+                    case ActionName.ProvisionTwin:
+                        await Actions.ProvisionTwin(await SetupHttpClient(Loggers.ConsoleLogger, appSettings), Loggers.ConsoleLogger);
                         break;
 
                     default:

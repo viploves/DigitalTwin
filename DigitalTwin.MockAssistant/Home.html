@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contoso Assistant</title>
+    <script type="text/javascript">
+        function LoadHome() {
+            document.getElementById('HomeBody').style.display = "block";
+            document.getElementById('RoomsBody').style.display = "none";
+            document.getElementById('RoomDetailsBody').style.display = "none";
+            document.getElementById('BackButton').style.display = "none";
+            document.getElementById('HeaderText').innerText = "Contoso Assistant";
+        }
+
+        function LoadRooms() {
+            document.getElementById('HomeBody').style.display = "none";
+            document.getElementById('RoomsBody').style.display = "block";
+            document.getElementById('RoomDetailsBody').style.display = "none";
+            document.getElementById('BackButton').style.display = "block";
+            document.getElementById('HeaderText').innerText = "Rooms";
+        }
+
+        function LoadRoomDetails() {
+            document.getElementById('HomeBody').style.display = "none";
+            document.getElementById('RoomsBody').style.display = "none";
+            document.getElementById('RoomDetailsBody').style.display = "block";
+            document.getElementById('BackButton').style.display = "block";
+            document.getElementById('HeaderText').innerText = "Room Details";
+        }
+    </script>
+    <style type="text/css">
+        .icon {
+            width: 90px;
+            height: 90px;
+        }
+        .availableRoom {
+            background-color: green;
+        }
+        .unavailableRoom {
+            background-color: red;
+        }
+        span{
+            font-family: Arial;
+        }
+        .iconName{
+            color: darkblue;
+            font-size: small;
+        }
+        .roomName{
+            color: white;
+            font-size: small;
+        }
+        .backArrow{
+            margin-top: -30px;
+            margin-left: 10px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-left:50px;margin-top:50px;">
+        <div id="Header" style="width: 440px; background-color: darkblue; text-align: center; padding-top: 20px; padding-bottom: 20px">
+            <span id="HeaderText" style="color: white;font-family:Arial;font-size:large">Contoso Assistant</span>
+            <div style="background-color: transparent">
+                <a id="BackButton" href="javascript:LoadHome();" style="display:none"><img class="backArrow" src="./../Content/backarrow.png" width="40" height="40" /></a>
+            </div>
+            
+        </div>
+        <div id="HomeBody" style="width:440px;height:400px;background-color:lightblue;">
+            <table width="300px" cellspacing="40" >
+                <tr>
+                    <td>
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/doctor.png" alt="Doctors" /></a>
+                            <span class="iconName">Doctors</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/patient.png" alt="Patients" /></a>
+                            <span class="iconName">Patients</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="text-align:center;">
+                            <a href="javascript:LoadRooms();"><img class="icon" src="./../Content/room.jpg" alt="Rooms" /></a>
+                            <span class="iconName">Rooms</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/equipment.png" alt="Equipment" /></a>
+                            <span class="iconName">Equipment</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/airquality.png" alt="Air Quality" /></a>
+                            <span class="iconName">Conditions</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/pharmacy.png" alt="Pharmacy" /></a>
+                            <span class="iconName">Pharmacy</span>
+                        </div>
+</td>
+                </tr>
+            </table>
+        </div>
+        <div id="RoomsBody" style="display:none;width:440px;height:400px;background-color:lightblue;">
+            <table width="300px" cellspacing="40" >
+                <tr>
+                    <td class="availableRoom">
+                        <div style="text-align:center;">
+                            <a href="javascript:LoadRoomDetails();"><img class="icon" src="./../Content/room.jpg" /></a>
+                            <span class="roomName">F1R1</span>
+                        </div>
+                    </td>
+                    <td class="unavailableRoom">
+                        <div style="text-align: center;">
+                            <a href="#"><img class="icon" src="./../Content/room.jpg" /></a>
+                            <span class="roomName">F1R2</span>
+                        </div>
+                    </td>
+                    <td class="availableRoom">
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/room.jpg" /></a>
+                            <span class="roomName">F1R3</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="unavailableRoom">
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/room.jpg" /></a>
+                            <span class="roomName">F2R1</span>
+                        </div>
+                    </td>
+                    <td class="availableRoom">
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/room.jpg" /></a>
+                            <span class="roomName">F2R2</span>
+                        </div>
+                    </td>
+                    <td class="unavailableRoom">
+                        <div style="text-align:center;">
+                            <a href="#"><img class="icon" src="./../Content/room.jpg" /></a>
+                            <span class="roomName">F2R3</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="RoomDetailsBody" style="display:none;width:360px;height:400px;
+                        background-color:lightblue;padding-left:80px;padding-top:20px">
+            <table cellspacing="10" cellpadding="10">
+                <tr>
+                    <td>
+                        <span style="font-weight:bold">Name:</span>
+                    </td>
+                    <td>
+                        <span>F1R1</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight:bold">Type:</span>
+                    </td>
+                    <td>
+                        <span>Patient Ward</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight:bold">Capacity:</span>
+                    </td>
+                    <td>
+                        <span>3 patients</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight:bold;">Condition:</span>
+                    </td>
+                    <td>
+                        <span style="font-weight:bold;color:green;">FRESH AND CLEAN</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight:bold">Status:</span>
+                    </td>
+                    <td>
+                        <span style="font-weight:bold;color:green;">AVAILABLE</span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2" align="center" style="padding-top:50px">
+                        <a><input onclick="javascript: LoadHome();" type="button" value="Block" style="font-family:Arial;font-size:large;background-color:darkblue;color:white" /></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-top:-30px;margin-left:20px;">
+            <table width="400px">
+                <tr>
+                    <td width="20%"></td>
+                    <td width="60%" style="background-color:darkblue"></td>
+                    <td width="20%"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

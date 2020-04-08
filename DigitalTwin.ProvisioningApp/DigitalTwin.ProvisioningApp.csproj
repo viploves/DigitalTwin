@@ -18,10 +18,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DigitalTwin.Models\DigitalTwin.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="appSettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="UDF\availability.js">
+    <None Update="UDF\roomCondition.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="UDF\roomAvailability.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="UDF\patientVitals.js">
@@ -33,7 +40,7 @@
     <None Update="yamls\createRoleAssignments.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="yamls\provisionEntity.yaml">
+    <None Update="yamls\provisionTwin.yaml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
