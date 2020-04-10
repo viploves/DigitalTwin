@@ -15,7 +15,6 @@ namespace DigitalTwin.ProvisioningApp
                 var appSettings = AppSettings.Load();
 
                 var actionName = ParseArgs(args);
-                actionName = ActionName.ProvisionTwin;
                 if (actionName == null)
                     return;
 
